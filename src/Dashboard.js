@@ -13,8 +13,8 @@ function Dashboard({ user }) {
       setUsers(data);
     };
     fetchUsers();
-  }, []);
-
+  }, []);    
+  
   return (
     <div>
       <h2>Dashboard</h2>
