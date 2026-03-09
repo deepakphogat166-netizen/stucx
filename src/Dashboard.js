@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
+import ChatComponent from "./ChatComponent"; // ✅ import chat
 import {
   Container,
   Typography,
@@ -31,7 +32,7 @@ function Dashboard({ user }) {
       <Typography variant="h4" gutterBottom>
         Dashboard
       </Typography>
-      <Typography variant="subtitle1" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         Welcome, {user.email}
       </Typography>
       <Button
@@ -43,6 +44,7 @@ function Dashboard({ user }) {
         Logout
       </Button>
 
+      {/* User Records Table */}
       <Typography variant="h6" gutterBottom>
         User Records
       </Typography>
@@ -74,6 +76,12 @@ function Dashboard({ user }) {
           </TableBody>
         </Table>
       </TableContainer>
+
+      {/* Messenger UI */}
+      <Typography variant="h6" gutterBottom style={{ marginTop: "40px" }}>
+        Chat Room
+      </Typography>
+      <ChatComponent />
     </Container>
   );
 }
