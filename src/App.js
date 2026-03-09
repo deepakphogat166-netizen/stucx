@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import AuthComponent from "./AuthComponent"; // login/signup form
+import Auth from "./Auth";          // ✅ use Auth.js instead of AuthComponent.js
 import Dashboard from "./Dashboard"; // post-login screen
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   return (
     <div>
       <h1>Welcome to Stucx App</h1>
-      {user ? <Dashboard user={user} /> : <AuthComponent />}
+      {user ? <Dashboard user={user} /> : <Auth />}
     </div>
   );
 }
